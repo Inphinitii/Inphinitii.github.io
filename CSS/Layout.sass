@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300)
+
+$lato-font: Lato,sans
+$railway-font: Railway, sans
+$off-white: rgb(220,220,220)
+
+$break-small : 480px
+$break-medium: 800px
+$break-large: 1024px
+
+
+*
+    box-sizing: border-box
+    padding:    0px
+    margin:     0px
+
+html
+    height:     100%
+
+body
+    width:      100vw
+    height:     100%
+    max-width:  100%
+    font-family: $lato-font
+
+.fullScreenEffect
+    position: absolute
+    content: ""
+    width: 100%
+    height: 100%
+    pointer-events: none
+
+.centerVertically
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+
+#top-nav-bar
+    position:   fixed
+    height:     100px
+    width:      100%
+
+    .icon
+        transition: all 0.5s ease
+        float:  left
+        padding: 0 5px
+        color: $off-white
+
+        &:hover
+            color: white
+            cursor: pointer
+
+
+#landing
+    background: url("../Images/controller.jpg")
+    &::before
+        @extend .fullScreenEffect
+        background-color: rgba(255,255,255,0.1)
+
+#portfolio
+    background-color: rgb(15,15,15)
+    &::before
+        @extend .fullScreenEffect
+        background: url("../Images/noise.png")
+        opacity: 0.15
+
+    #item
+        overflow: hidden
+        transition: all 0.5s ease
+        background-color: rgb(10,10,10)
+
+        &:hover
+            cursor: pointer
+            >[class*="slideUp"]
+                transform:translateY(0%)
+
+        .entryImage
+            width: 100%
+            height: 85%
+            background-color: gray
+
+        .entryLinks
+            transition: all 0.5s ease
+
+            &:hover
+                background-color:rgb(220,220,220)
+
+                >[class*="fa"]
+                    color:black
+
+            .icon
+                transition: all 0.5s ease
+                color: white
+                position: relative
+                top:50%
+                transform:translateY(-50%)
+            //Media Queries Here
+
+        .content-shrunk
+
+        .content-expand
+            transform:translateY(0%)
+
+    .active
+        transition: all 0.5s ease
+        width: 100%
+        background-color: rgba(0,0,0, 0.5)
+
+    .hidden
+        display: none
+
+
+#contact-me
+
+.slideUp
+    transition: all 0.75s ease
+    width: 100%
+    height: 100%
+    display: block
+    background-color: rgba(0,0,0, 0.5)
+    transform: translateY(101%)
+
+
+.portfolio-items
+    width: 85%
+    height: 75%
+    margin: auto auto
+
+
+.content-section
+    height: 100vh
+    min-height: 50%
+    width: 100%
+
+
+    nav
+        text-align: center
+        ul
+            li
+                transition: all 0.5s ease
+                display: inline-block
+                width: 150px
+                height: 25px
+                border: 1px $off-white solid
+                color: $off-white
+                line-height: 25px
+                margin: 0px 5px 0px 5px
+                letter-spacing: 0.2em
+                cursor: pointer
+                font-family: $railway-font
+
+                &:hover
+                    color: black
+                    background-color: $off-white
+
+    .top-bar-spacing
+        height: 5%
+
+    .top-bar-content
+        height:     15%
+        min-height: 15%
+        margin-bottom: 20px
+
+        .page-title
+            @extend .centerVertically
+            max-width:      420px
+            margin:         auto auto
+            text-align:     center
+            @media (min-width: $break-medium) and (max-width: $break-large)
+                width: 100%
+
+            @media (max-width: $break-large) and (orientation: landscape)
+                width: 100%
+
+            @media (max-width: $break-small)
+                width: 100%
+
+
+
+            .divider
+                width: inherit
+                height: 1px
+                border-bottom:  1px solid $off-white
+                margin-top: 2%
+                margin-bottom: 2%
+
+            div
+                position:   relative
+                margin:     0 auto
+                color:      $off-white
+                letter-spacing: 1em
+                font-size: 1.5em
+
+                @media (max-width: $break-small)
+                    font-size: 1.25em
